@@ -154,6 +154,7 @@ for model in "${models[@]}"; do
         --tasks $benchmark \
         --batch_size 1 \
         --log_samples \
+        --verbosity DEBUG \
         --log_samples_suffix $model \
         --output_path $output_path/$benchmark \
         "
