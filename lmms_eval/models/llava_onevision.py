@@ -33,6 +33,8 @@ eval_logger = logging.getLogger("lmms-eval")
 # Enable TF32 for CUDA
 torch.backends.cuda.matmul.allow_tf32 = True
 
+print(">>> Using Llava-onevision!")
+
 import sys; sys.path = ["LLaVA-NeXT/"] + sys.path
 # Import LLaVA modules
 try:
