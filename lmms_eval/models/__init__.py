@@ -7,6 +7,8 @@ from loguru import logger
 
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
 
+print(">>> Using modified models!")
+
 logger.remove()
 logger.add(sys.stdout, level="WARNING")
 
