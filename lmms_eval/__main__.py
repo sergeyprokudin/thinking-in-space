@@ -11,6 +11,8 @@ from functools import partial
 import numpy as np
 import yaml
 
+print(">>> Using modified lmms_eval!")
+
 warnings.simplefilter("ignore", category=DeprecationWarning)
 
 import hashlib
