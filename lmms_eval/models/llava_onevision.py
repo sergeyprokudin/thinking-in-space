@@ -495,7 +495,7 @@ class Llava_OneVision(lmms):
                 else:
                     question = context
 
-                print(question)
+                
                 # This is much safer for llama3, as we now have some object type in it
                 if "llama_3" in self.conv_template:
                     conv = copy.deepcopy(conv_templates[self.conv_template])
@@ -519,6 +519,7 @@ class Llava_OneVision(lmms):
                     prompt_question = conv.get_prompt()
                     question_input.append(prompt_question)
 
+                print(question)
             # preconfigure gen_kwargs with defaults
             if "max_new_tokens" not in gen_kwargs:
                 gen_kwargs["max_new_tokens"] = 1024
