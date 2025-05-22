@@ -519,7 +519,7 @@ class Llava_OneVision(lmms):
                     prompt_question = conv.get_prompt()
                     question_input.append(prompt_question)
 
-                print(question)
+                print(question_input)
             # preconfigure gen_kwargs with defaults
             if "max_new_tokens" not in gen_kwargs:
                 gen_kwargs["max_new_tokens"] = 1024
@@ -564,6 +564,7 @@ class Llava_OneVision(lmms):
             text_outputs = [response.strip() for response in text_outputs]
             # print(self.tokenizer.batch_decode(input_ids % self.tokenizer.vocab_size), text_outputs)
             res.extend(text_outputs)
+            print(text_outputs)
             self.cache_hook.add_partial("generate_until", (context, gen_kwargs), text_outputs)
             pbar.update(1)
             # reorder this group of results back to original unsorted form
