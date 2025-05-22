@@ -338,7 +338,7 @@ class Llava_OneVision(lmms):
 
             conv.messages[-1][1] = continuation
             full_prompt = conv.get_prompt()
-            print(full_prompt)
+            eval_logger.debug(full_prompt)
             full_input_ids = tokenizer_image_token(full_prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(self.device)
 
             labels = full_input_ids.clone()
