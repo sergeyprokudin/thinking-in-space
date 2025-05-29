@@ -367,6 +367,7 @@ class LlavaVid(lmms):
                         elif self.video_decode_backend == "pyav":
                             video = read_video_pyav(visual, num_frm=self.max_frames_num)
                         # video = self.load_video(visual, self.max_frames_num)
+                        print("num frames: %d" len(video))
                         video = self._image_processor.preprocess(video, return_tensors="pt")["pixel_values"].half().cuda()
                         videos.append(video)
                 except Exception as e:
