@@ -220,6 +220,7 @@ class LLaMAVid(lmms):
             videos = []
             for visual in visuals:
                 video = read_video_pyav(visual, num_frm=self.num_frames)
+                print("num frames: %d" % len(video))
                 video = self.image_processor.preprocess(video, return_tensors="pt")["pixel_values"].half().cuda()
                 video = [video]
                 videos += video
