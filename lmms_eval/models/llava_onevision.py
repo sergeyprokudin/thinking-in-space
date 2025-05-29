@@ -340,7 +340,6 @@ class Llava_OneVision(lmms):
 
             conv.messages[-1][1] = continuation
             full_prompt = conv.get_prompt()
-            import ipdb; ipdb.set_trace()
             full_input_ids = tokenizer_image_token(full_prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0).to(self.device)
 
             labels = full_input_ids.clone()
@@ -468,6 +467,7 @@ class Llava_OneVision(lmms):
                             elif self.video_decode_backend == "pyav":
                                 frames = read_video_pyav(visual[0], num_frm=self.max_frames_num)
                             frames = self._image_processor.preprocess(frames, return_tensors="pt")["pixel_values"].half().cuda()
+                            print("number of frames: {frames}")
                             image_tensor.append(frames)
                         except Exception as e:
                             eval_logger.error(f"Error {e} in loading video")
