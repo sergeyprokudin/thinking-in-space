@@ -424,6 +424,10 @@ class Llava_OneVision(lmms):
             question_input = []
 
             for visual, context in zip(batched_visuals, batched_contexts):
+                print("VISUAL: ")
+                print(visual)
+                print("CONTEXT: ")
+                print(context)
                 if visual is None or visual == []:  # for text-only tasks.
                     visual = None
                     task_type = "text"
@@ -437,6 +441,8 @@ class Llava_OneVision(lmms):
                     if "task_type" in metadata and metadata["task_type"] == "video" and "sample_frames" in metadata:  # overwrite logic for video task with multiple static image frames
                         assert type(visual) == list, "sample_frames must be specified for video task"
                         sample_indices = np.linspace(0, len(visual) - 1, metadata["sample_frames"], dtype=int)
+                        print("sample_indices:")
+                        print(sample_indices)
                         visual = [visual[i] for i in sample_indices]
                         assert len(visual) == metadata["sample_frames"]
 
